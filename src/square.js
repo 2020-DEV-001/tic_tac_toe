@@ -10,12 +10,12 @@ export default class Square extends React.Component {
         };
       }
 
+
     render() {
         return (
-            //Change Squares render method to show that value 
-            <button type="button" className="square" onClick={this.handleClick}>
-                {this.state.value}
-            </button>
-        );
+            //Code modified to check if the square is clicked
+            <button className="square" onClick={function() { alert('Square is clicked'); }}>
+            {this.props.value}
+          </button>);
     }
 }
