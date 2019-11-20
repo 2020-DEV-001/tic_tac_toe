@@ -37,5 +37,12 @@ describe('Game', () => {
         const secondPlayer = wrapper2.find('.status').text();
         expect(secondPlayer).toEqual('Next player: X')
       })
-   
+
+      it('should simulate click', () => {
+      const wrapper = mount(<Game/>)
+      const button = wrapper.find('button.square').first()
+      button.simulate('click')
+      const secondPlayer = wrapper.find('.status').text();
+      expect(secondPlayer).toEqual('Next player: O')
+})
 });
