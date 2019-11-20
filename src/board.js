@@ -30,6 +30,7 @@ export default class Board extends React.Component {
       }
     
       render() {
+          //Code to display player 
         const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         return (
             <div id="game-info">
