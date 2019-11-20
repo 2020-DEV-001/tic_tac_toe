@@ -4,8 +4,8 @@ import Square from './square';
 
 export default class Board extends React.Component {
     addSquare(i) {
-        //code to pass a prop called value to the Square
-        return <Square value={i}/>;
+       
+        return <Square />;
     }
 
     render() {
