@@ -17,20 +17,25 @@ describe('Game', () => {
       });
 
 
-      it('should pass game status data for content match', () => {
+      it('should pass game status data for content match Player X', () => {
         const wrapper = mount(<Game/>);
         const firstPlayer = wrapper.find('.status').text();
         expect(firstPlayer).toEqual('Player: X')
     
       })
 
-
-
       it('should call onClick event on click of a board square', () => {
         const mockOnClick = jest.fn()
         const wrapper = shallow(<button onClick={mockOnClick}/>)
         wrapper.find('button').at(0).simulate('click', 'junk')
         expect(mockOnClick).toHaveBeenCalled()
+      })
+
+      
+      it('should render game status correctly', () => {
+        const wrapper2 = mount(<Game/>)
+        const secondPlayer = wrapper2.find('.status').text();
+        expect(secondPlayer).toEqual('Next player: X')
       })
    
 });
