@@ -16,19 +16,21 @@ describe('Game', () => {
         shallow(<Board squares={squares}/>);
       });
 
-      it('should verify game status data for content match', () => {
-        const wrapper = mount(<Game/>);
-        const firstPlayer = wrapper.find('.status').text();
-        expect(firstPlayer).toEqual('Player:2')
-    
-      })
 
-      it('should pass  game status data for content match', () => {
+      it('should pass game status data for content match', () => {
         const wrapper = mount(<Game/>);
         const firstPlayer = wrapper.find('.status').text();
         expect(firstPlayer).toEqual('Player: X')
     
       })
 
+
+
+      it('should call onClick event on click of a board square', () => {
+        const mockOnClick = jest.fn()
+        const wrapper = shallow(<button onClick={mockOnClick}/>)
+        wrapper.find('button').at(0).simulate('click', 'junk')
+        expect(mockOnClick).toHaveBeenCalled(0)
+      })
    
 });
