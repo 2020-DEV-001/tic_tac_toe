@@ -23,5 +23,12 @@ describe('Game', () => {
     
       })
 
+      it('should pass  game status data for content match', () => {
+        const wrapper = mount(<Game/>);
+        const firstPlayer = wrapper.find('.status').text();
+        expect(firstPlayer).toEqual('Player:X')
+    
+      })
+
    
 });
