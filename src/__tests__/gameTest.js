@@ -30,7 +30,7 @@ describe('Game', () => {
         const mockOnClick = jest.fn()
         const wrapper = shallow(<button onClick={mockOnClick}/>)
         wrapper.find('button').at(0).simulate('click', 'junk')
-        expect(mockOnClick).toHaveBeenCalled(0)
+        expect(mockOnClick).toHaveBeenCalled()
       })
    
 });
