@@ -38,19 +38,13 @@ Square(props) {
         });
       }
    
-      // handleClick(i) {
-      //   const squares = this.state.squares.slice();
-      //   squares[i] = 'X';
-      //   this.setState({squares: squares});
-      // }
+     
       addSquare(i) {
         return (<Square value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
       }
     
       render() {
-          //Code to display player 
-        //const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-
+       //Code to display player 
         const winner = calculateWinner(this.state.squares);
         let status;
         if (winner) {
