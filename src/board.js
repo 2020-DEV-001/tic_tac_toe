@@ -15,7 +15,7 @@ export default class Board extends React.Component {
         };
       }
 
-Square(props) {
+    Square(props) {
         return (
           <button className="square" onClick={props.onClick}>
             {props.value}
@@ -23,13 +23,13 @@ Square(props) {
         );
       }
 
-      handleClick(i) {
+      handleClick(counter) {
        //function to flip the value of xIsNext:
         const squares = this.state.squares.slice();
-        if (calculateWinner(squares) || squares[i]) {
+        if (calculateWinner(squares) || squares[counter]) {
           return;
         }
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        squares[counter] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
           squares: squares,
           xIsNext: !this.state.xIsNext,
@@ -37,19 +37,24 @@ Square(props) {
       }
    
      
-      addSquare(i) {
-        return (<Square value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>);
+      addSquare(counter) {
+        return (<Square value={this.state.squares[counter]} onClick={() => this.handleClick(counter)}/>);
       }
     
       render() {
        //Code to display player 
         const winner = calculateWinner(this.state.squares);
-        let status;
-        if (winner) {
-          status = 'Player ' + '"' +  winner + '"' + ' is the winner'
-        } else {
+       
+       //Condition to check game status i.e winner , draw and player
+      let status;
+      const draw ="draw";
+      if(winner && winner != draw){
+          status = 'Winner: ' + winner;
+      } else if (winner && winner === draw){
+          status = "Game is " + winner;
+      } else {
           status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-        }
+      }
 
         return (
             <div id="game-info">
@@ -70,7 +75,7 @@ Square(props) {
 
 
 function calculateWinner(squares) {
-  const lines = [
+  const blocks = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -80,10 +85,15 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+  for (let counter = 0; counter < blocks.length; counter++) {
+    const [column1, column2, column3] = blocks[counter];
+   
+    // populating the block indexes
+    if (squares[column1] && squares[column1] === squares[column2] && squares[column1] === squares[column3]) {
+      return squares[column1];
+    }
+    else if(!squares.includes(null)){
+      return 'draw';
     }
   }
   return null;
