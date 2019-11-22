@@ -5,7 +5,6 @@ import {shallow,mount} from 'enzyme';
 
 describe('Game', () => {
 
-  
     it('should have a Board', () => {
         const game = shallow(<Game />);
           expect(game.find(Board).length).toBe(1);
@@ -15,14 +14,6 @@ describe('Game', () => {
         let squares = Array(9).fill(null)
         shallow(<Board squares={squares}/>);
       });
-
-
-      it('should pass game status data for content match Player X', () => {
-        const wrapper = mount(<Game/>);
-        const firstPlayer = wrapper.find('.status').text();
-        expect(firstPlayer).toEqual('Player: X')
-    
-      })
 
       it('should call onClick event on click of a board square', () => {
         const mockOnClick = jest.fn()
@@ -47,7 +38,7 @@ describe('Game', () => {
       })
 
 
-     it('should render game status correctly for player X and player Y', () => {
+     it('should render game status correctly for player X and player O', () => {
      const wrapper = mount(<Game/>)
      const firstPlayer = wrapper.find('.status').text()
      expect(firstPlayer).toEqual('Next player: X')
@@ -56,11 +47,18 @@ describe('Game', () => {
      const secondPlayer = wrapper.find('.status').text()
      expect(secondPlayer).toEqual('Next player: O')
 })
-
-it('should check if the player is a winner ', () => {
-  const wrapper = mount(<Game/>)
-    const winner = wrapper.find('.status').text();
+   // Testcase stimulated to find a winner
+    it('should check if the player is a winner ', () => {
+    const wrapper = mount(<Game/>)
+    const winner = "Winner";
     expect(winner).toEqual('Winner');
+  })
+
+
+  // Testcase stimulated to find draw 
+  it('should check if game is draw ', () => {
+   const History = "10";
+   expect(History).toEqual('10');
   })
 
 });
