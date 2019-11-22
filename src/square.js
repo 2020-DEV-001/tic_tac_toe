@@ -13,15 +13,7 @@ export default class Square extends React.Component {
 
     render() {
         return (
-            //Code modified to check if the square is clicked
-            //<button className="square" onClick={function() { alert('Square is clicked'); }}>
-            //Code modified for updating child component
-          //   <button
-          //   className="square"
-          //   onClick={() => this.setState({value: 'X'})}
-          // >
-          //   {this.state.value}
-          // </button>);
+       
           <button
           className="square"
           onClick={() => this.props.onClick()}>
