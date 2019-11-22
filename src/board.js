@@ -15,8 +15,6 @@ export default class Board extends React.Component {
         };
       }
 
-
-
 Square(props) {
         return (
           <button className="square" onClick={props.onClick}>
@@ -48,7 +46,7 @@ Square(props) {
         const winner = calculateWinner(this.state.squares);
         let status;
         if (winner) {
-          status = 'Winner: ' + winner;
+          status = 'Player ' + '"' +  winner + '"' + ' is the winner'
         } else {
           status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
