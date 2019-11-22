@@ -57,4 +57,10 @@ describe('Game', () => {
      expect(secondPlayer).toEqual('Next player: O')
 })
 
+it('should check if the player is a winner ', () => {
+  const wrapper = mount(<Game/>)
+    const winner = wrapper.find('.status').text();
+    expect(winner).toEqual('Winner');
+  })
+
 });
