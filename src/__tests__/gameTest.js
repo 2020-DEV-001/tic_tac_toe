@@ -53,12 +53,10 @@ describe('Game', () => {
     const gameStatus = "Winner";
     expect(gameStatus).toEqual('Winner');
   })
-
-
-  // Testcase stimulated to find draw 
+  // Testcase stimulated for draw scenario
   it('should check if game is draw ', () => {
    const drawCounter= "10";
-   expect(drawCounter).toEqual('10');
+   expect(drawCounter).toBeTruthy();
   })
 
 });
