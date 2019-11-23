@@ -50,15 +50,15 @@ describe('Game', () => {
    // Testcase stimulated to find a winner
     it('should check if the player is a winner ', () => {
     const wrapper = mount(<Game/>)
-    const winner = "Winner";
-    expect(winner).toEqual('Winner');
+    const gameStatus = "Winner";
+    expect(gameStatus).toEqual('Winner');
   })
 
 
   // Testcase stimulated to find draw 
   it('should check if game is draw ', () => {
-   const History = "10";
-   expect(History).toEqual('10');
+   const drawCounter= "10";
+   expect(drawCounter).toEqual('10');
   })
 
 });
