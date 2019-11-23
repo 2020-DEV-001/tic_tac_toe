@@ -12,13 +12,7 @@ import Square from './square';
         };
       }
 
-    Square(props) {
-        return (
-          <button className="square" onClick={props.onClick}>
-            {props.value}
-          </button>
-        );
-      }
+   
 
       handleClick(counter) {
        //function to flip the value of xIsNext:
