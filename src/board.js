@@ -1,12 +1,9 @@
 import React from 'react';
 import './index.css';
 import Square from './square';
-
-
-    // Constructor added to the Board and the initial state to contain an array of
-    // 9 nulls corresponding to the 9 squares
-   
-export default class Board extends React.Component {
+// Constructor added to the Board and the initial state to contain an array of
+// 9 nulls corresponding to the 9 squares
+  export default class Board extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
