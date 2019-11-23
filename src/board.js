@@ -43,15 +43,15 @@ export default class Board extends React.Component {
     
       render() {
        //Code to display player 
-        const winner = calculateWinner(this.state.squares);
+        const gameStatus = calculateWinner(this.state.squares);
        
        //Condition to check game status i.e winner , draw and player
       let status;
       const draw ="draw";
-      if(winner && winner != draw){
-          status = 'Winner: ' + winner;
-      } else if (winner && winner === draw){
-          status = "Game is " + winner;
+      if(gameStatus && gameStatus != draw){
+          status = 'Winner: ' + gameStatus;
+      } else if (gameStatus && gameStatus === draw){
+          status = "Game is " + gameStatus;
       } else {
           status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
       }
